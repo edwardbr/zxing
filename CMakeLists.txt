@@ -1,10 +1,27 @@
 cmake_minimum_required(VERSION 3.13)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-set(CMAKE_VERBOSE_MAKEFILE ON)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+
+include(HunterGate)
+
+message(STATUS "[project] CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+
+option(HUNTER_STATUS_DEBUG "Hunter debug info" ON)
+#option(HUNTER_CONFIGURATION_TYPES "Hunter HUNTER_CONFIGURATION_TYPES" Debug)
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.23.214.tar.gz"
+    SHA1 "e14bc153a7f16d6a5eeec845fb0283c8fad8c358"
+    LOCAL
+)
+
+set(HUNTER_KEEP_PACKAGE_SOURCES ON)
 
 project(zxing VERSION 0.1)
 
+
+hunter_add_package(bigint)  
+find_package(bigint REQUIRED) 
 
 message("Qt5")
 
@@ -354,6 +371,7 @@ target_link_libraries(${PROJECT_NAME}
                 Qt5::Gui
                 Qt5::Multimedia
                 Qt5::Widgets
+                bigint::bigint
         )
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
