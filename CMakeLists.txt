@@ -395,7 +395,7 @@ install(
 install(
     DIRECTORY zxing
     DESTINATION "${include_install_dir}/zxing"
-    FILES_MATCHING PATTERN "*.h"
+    FILES_MATCHING PATTERN "*.h*"
 )
 
 install(
