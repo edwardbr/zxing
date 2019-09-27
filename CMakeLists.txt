@@ -359,6 +359,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
 target_compile_definitions(${PROJECT_NAME} PUBLIC 
         QZXING_LIBRARY
         ZXING_ICONV_CONST
+        NO_ICONV
         DISABLE_LIBRARY_FEATURES
         QZXING_MULTIMEDIA
         QZXING_QML
