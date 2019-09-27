@@ -35,7 +35,7 @@ set(Qt5Quick_DIR "${QT_CMAKE}/Qt5Quick")
 set(Qt5Widgets_DIR "${QT_CMAKE}/Qt5Widgets")
 set(Qt5Multimedia_DIR "${QT_CMAKE}/Qt5Multimedia")
 
-find_package(Qt5 COMPONENTS Core Gui Quick Multimedia Widgets WebEngine REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Quick Multimedia Widgets REQUIRED)
 
 else()
 
